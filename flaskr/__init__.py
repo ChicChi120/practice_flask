@@ -1,37 +1,14 @@
-import os
-from  flask import Flask
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-def create_app(test_config=None):
-    # app を定義して準備
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='dev',   # random number
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-    )
+app = Flask(__name__)
 
-    if test_config is None:
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        app.config.from_mapping(test_config)
+# https://qiita.com/KI1208/items/2581ed6f211a2d73e5fd
+# より以下を付け足す
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+app.config.from_object('flaskr.config')
 
-    @app.route('/hello')
-    def hello():
-        return 'Hello World'
+db = SQLAlchemy(app)
 
-    from . import db
-    db.init_app(app)
-
-    from . import auth
-    app.register_blueprint(auth.bp)
-
-    from . import blog
-    app.register_blueprint(blog.bp)
-    app.add_url_rule('/', endpoint='index')
-    
-
-    return app
+import flaskr.views
