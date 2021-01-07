@@ -1,2 +1,2 @@
 # practice_flask
-Practice Flask based on [the tutorial](https://msiz07-flask-docs-ja.readthedocs.io/ja/latest/tutorial/index.html).
+Practice Flask based on [the japanese tutorial](https://study-flask.readthedocs.io/ja/latest/index.html#)
