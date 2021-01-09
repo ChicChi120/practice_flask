@@ -88,6 +88,16 @@ def user_delete(user_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        if request.form['email'] != app.config['EMAIL']:
+            flash('Invalid email')
+        elif request.form['password'] != app.config['PASSWORD']:
+            flash('Invalid password')
+        else:
+            session['user_id'] = user.id
+            flash('You were logged in')
+            return redirect(url_for('show_entries'))
+            
+        '''
         user, authenticated = User.authenticate(db.session.query, request.form['email', request.form['password']])
         if authenticated:
             session['user_id'] = user.id
@@ -95,6 +105,7 @@ def login():
             return redirect(url_for('show_entries'))
         else:
             flash('Invalid email or password')
+        '''
     return render_template('login.html')
 
 @app.route('/logout')            
