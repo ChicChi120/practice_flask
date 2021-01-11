@@ -15,5 +15,6 @@
     {% for message in get_flashed_messages() %}
     <div class="flash">{{message}}</div>
     {% endfor %}
+    <a href="{{url_for('sample')}}">Sample</a>
     {% block body %}{% endblock %}
 </div>
