@@ -1,3 +1,2 @@
 # practice_flask
-Practice Flask based on [the japanese tutorial](https://study-flask.readthedocs.io/ja/latest/index.html#)  
-pipenv を使わないと SQLAlchemy でエラーがでる可能性あり
+[the japanese tutorial](https://study-flask.readthedocs.io/ja/latest/index.html#) を元に学習していたが [【保存版】Python(Flask)×Web アプリ開発入門コース【1 時間で OK!】](https://www.youtube.com/watch?v=jP7p2okKdJA&list=LL&index=1) の方がわかりやすく, 他のサイトや書籍よりも時間がかからなかった.

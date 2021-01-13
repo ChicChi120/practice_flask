@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-script-type" content="text/javascript">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>タイトル</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light p-3">
+        <a class="navbar-brand" href="/" style="font-size: 2rem;">Myapp</a>
+    </nav>
+    {% block body %}{% endblock %}
+</body>
+</html>
